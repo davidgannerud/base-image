@@ -14,4 +14,8 @@ mkdir /home/user/.ssh
 echo -e "Host * \n\t StrictHostKeyChecking no" > /home/user/.ssh/config
 chown -R user:user /home/user/.ssh
 
+cd /
+python -m SimpleHTTPServer 8000 >/dev/null 2>&1 &
+cd /workspace
+
 exec gosu user "$@"
